@@ -5,7 +5,6 @@ curl "https://pjreddie.com/media/files/yolov3.weights" --output flask_yolo/yolo_
 
 sudo yum update -y
 sudo yum install -y docker
-sudo yum install -y git
 
 
 sudo docker build -t custom_yolo:latest .
