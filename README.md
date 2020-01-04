@@ -1,6 +1,6 @@
 # SausageOrNot
 ![1](https://github.com/abnan/SausageOrNot/blob/master/images/1.png "1")
-This project originally started off as a porn filter for unsolicited inapproriate pictures. Since annotating such an imageset would be scarring, I used sausages as an euphemism. In it's current state, it detects the location of (if any) sausages in the picture and blurs out that particular while keeping the remaining of the image intact, leaving it to the users discretion if they do really want to see it. This project was trained using the YOLOv3 architecture.
+This project originally started off as a porn filter for unsolicited inapproriate pictures. Since annotating such an imageset would be scarring, I used sausages as an euphemism. In it's current state, it detects the location of (if any) sausages in the picture and blurs out that particular section while keeping the remaining of the image intact, leaving it to the users discretion if they do really want to see it. This project was trained using the YOLOv3 architecture.
 
 ### Steps on how to use on an Amazon EC2 instance:
 1. Clone the repository.
@@ -18,6 +18,7 @@ Here are some more results:
 
 #### Todo:
 - Host yolov3.weights as a direct download file somewhere so that it works with cURL/WGET. Gdrive does not support cURL/WGET.
+- Maybe semantic segmentation is a "cleaner" approach to this?
 
 #### Disclaimer:
 - The network was trained on about 150 sausage images annotated (somewhat lazily) by my in my free time; it still works quite well, but can  be improved upon.
