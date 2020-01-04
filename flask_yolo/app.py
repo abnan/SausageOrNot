@@ -1,11 +1,3 @@
-# @Author: Dwivedi Chandan
-# @Date:   2019-08-05T13:35:05+05:30
-# @Email:  chandandwivedi795@gmail.com
-# @Last modified by:   Dwivedi Chandan
-# @Last modified time: 2019-08-07T11:52:45+05:30
-
-
-# import the necessary packages
 import numpy as np
 import argparse
 import time
@@ -13,7 +5,6 @@ import cv2
 import os
 from flask import Flask, request, Response, jsonify
 import jsonpickle
-#import binascii
 import io as StringIO
 import base64
 from io import BytesIO
@@ -136,13 +127,21 @@ def get_predection(image,net,LABELS,COLORS):
             (x, y) = (boxes[i][0], boxes[i][1])
             (w, h) = (boxes[i][2], boxes[i][3])
 
+            ROI = image[y:y+h, x:x+w]
+            blur = cv2.GaussianBlur(ROI, (271,271), 0) 
+
+            # Insert ROI back into image
+            image[y:y+h, x:x+w] = blur
+
+            # cv2.imshow('blur', blur)
+
             # draw a bounding box rectangle and label on the image
-            color = [int(c) for c in COLORS[classIDs[i]]]
-            cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
-            text = "{}: {:.4f}".format(LABELS[classIDs[i]], confidences[i])
+            # color = [int(c) for c in COLORS[classIDs[i]]]
+            # cv2.rectangle(image, (x, y), (x + w, y + h), color, 2)
+            # text = "{}: {:.4f}".format(LABELS[classIDs[i]], confidences[i])
             print(boxes)
             print(classIDs)
-            cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,0.5, color, 2)
+            # cv2.putText(image, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX,0.5, color, 2)
     return image
 
 
