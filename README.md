@@ -8,6 +8,7 @@ This project originally started off as a porn filter for unsolicited inapproriat
 3. Download the custom weights from this link: https://drive.google.com/uc?export=download&confirm=AH2T&id=1cuG7bO0EcWrVnjaEn8ME3nHcUB65xRYg
 4. Overwrite the weights in flask_yolo/yolo_v3/yolov3.weights using the weights from the above downloaded link.
 5. Test the API with the following command: curl -X POST -F image=@your_image_here.jpg 'http://localhost:80/api/test' --output test_output.png
+6. If your EC2 instance allows http/s traffic on port 80, replace localhost with public IP.
 
 ### Results
 Here are some more results:
@@ -19,4 +20,4 @@ Here are some more results:
 - Host yolov3.weights as a direct download file somewhere so that it works with cURL/WGET. Gdrive does not support cURL/WGET.
 
 #### Disclaimer:
-The network was trained on about 150 sausage images annotated (somewhat lazily) by my in my free time; it still works quite well, but can  be improved upon.
+- The network was trained on about 150 sausage images annotated (somewhat lazily) by my in my free time; it still works quite well, but can  be improved upon.
